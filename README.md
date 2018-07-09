@@ -9,7 +9,7 @@ JawCloseR is an assembly of two R scripts that, with a few other text files, mod
 * **OutPutVerb**: Logical, should the simulations output all of the model calculations.
 * **Prey**: Logical, should a prey item be added to the simulation.
 * **press**: Numeric, maximum intraoral pressure.
-* **prey.per**: Numeric; how larger is the prey item as a percetage of the specimens body length.
+* **prey.per**: Numeric; how large (its length) is the prey item as a percetage of the specimen's body length.
 * **strike.ang**: Numeric, when in adduction (the angle) the prey hits the jaw.
 * **prey.pos**: Character, the position of the prey. Must either be "flat" (lateral side flat against jaw) or "flipped" (ventral or dorsal side against jaw.
 * **MaxIts**: Numeric, how many interations of 0.1 MS should the simulation run.
