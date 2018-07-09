@@ -1,6 +1,6 @@
 # JawCloseR
 
-JawCloseR is an assembly of two R scripts that, with a few other text files, models lower-jaw adduction in fishes using a dynamic equilibrium model based on that of van Wassenbergh et al. (2005) and Kenaley (2012). The "jaw.model" script defines the function "run.jaw.prey.2." It must be accompanied by a CSV input file of morphometric data. See example under "C_sloani_mdata_for_MS.csv" and Kenaley et al. (submitted) for explainations. Must also include  The function's input includes: 
+JawCloseR is an assembly of two R scripts that, with a few other text files, models lower-jaw adduction in fishes using a dynamic equilibrium model based on that of van Wassenbergh et al. (2005) and Kenaley (2012). The "JawModel" script defines the function "run.jaw.prey.2." and runs the simulation interations with the "jaw.torque" file. These must be accompanied by a CSV input file of morphometric data. See example under "C_sloani_mdata_for_MS.csv" and Kenaley et al. (submitted) for explainations. The "var.df" file defines the variables that will be calculated during simulaitons.  The function "run.jaw.prey.2" input includes: 
 
 * **spec.n**: Numeric, the specimen number identified in the "Specimen" column of the input file.
 * **dat**: Character, the name of the CSV file.
