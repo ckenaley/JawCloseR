@@ -17,4 +17,4 @@ JawCloseR is an assembly of two R scripts that, with a few other text files, mod
 * **print.every**: Numeric, specifies how often to print progress.
 * **out**: Character, output graphics file type. Must be either "png" or "pdf".
 
-The model can accomadate the inclusion of a prey item agains the jaw. This is very much in development and it would be best to ignore this option for the time being.
+The model can accomadate the inclusion of a prey item against the jaw. This is very much in development and it would be best to ignore this option for the time being.
