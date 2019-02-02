@@ -1,7 +1,7 @@
 
 source("Prey.models.R")
 source("jaw.model.fun.R")
-source("~/Documents/R.scripts/ggplot/bw.theme.r")
+
 
 #config=1 is  no sling Aw mass added to A2 mass, 2 is no sling and Aw mass not added, 3 is sling
 run.jaw.prey.2 <- function(spec.n=3,dat=NULL,config=1,Loose=F,min.ML=0.6,OutPutVerb=T,prey=F,press=100,prey.per=NULL,prey.strike.ang=NULL,prey.pos="flat",MaxIts=1000,progress=F,print.every=10,inset=T,out="pdf")	{
@@ -17,6 +17,7 @@ dir.create(graph.dir,showWarnings=F)
 	
 #Load specimen data and parameter values
 MuscleData<-read.csv(dat)
+#MuscleData<-dat
 ParameterValues<- read.csv(file=paste(getwd(),"/ParValPrey.csv",sep=""), head=TRUE)
 #print(MuscleData)
 #specimen number to index with
@@ -58,9 +59,9 @@ AwMass <- ifelse(config==1|config==2,0,MuscleData[SpecimenNumber,"AwMass"])
 
 #jaw geometry, gape
 JawWidth <- MuscleData[SpecimenNumber,"Sspine"]
-MandWidth <- MuscleData[SpecimenNumber,"MandibleWidth"]
-MandDepth <- MuscleData[SpecimenNumber,"MandibleDepth"]
-SymphLength <- MuscleData[SpecimenNumber,"SymphysisLength"]
+MandWidth <- MuscleData[SpecimenNumber,"MandWidth"]
+MandDepth <- MuscleData[SpecimenNumber,"MandDepth"]
+SymphLength <- MuscleData[SpecimenNumber,"SymphLength"]
 Gape <- (pi/180)*MuscleData[SpecimenNumber,"Gape"]
 SpecAng<- (pi/180)*MuscleData[SpecimenNumber,"SpecAng"]
 Pressure <-press #MuscleData[SpecimenNumber,"Pressure"]
@@ -125,6 +126,7 @@ AwMA <- AwLi/AwLo
 A3FmaxClosed <-MaxIso/10*A3PCSAclosed
 A2FmaxClosed <-MaxIso/10*A2PCSAclosed
 AwFmaxClosed <-MaxIso/10*AwPCSAclosed
+
 
 #*************** Muscle geometry *******************
 
@@ -246,13 +248,11 @@ A3PennOpen <-asin((sin(A3AvgPenn)*A3AvgFL)/A3FLOpen)
 A2PennOpen <-asin((sin(A2AvgPenn)*A2AvgFL)/A2FLOpen)
 AwPennOpen <-asin((sin(AwAvgPenn)*AwAvgFL)/AwFLOpen)
 
-#Optimal muscle length (check if these makes sense 21Aug14)
+#Optimal muscle length 
 A3MLOpt <-A3MLOpen-(A3MLOpen-A3MLClosed)*MLOpt
 A2MLOpt <- A2MLOpen-(A2MLOpen-A2MLClosed)*MLOpt
 AwMLOpt <- AwMLOpen-(AwMLOpen-AwMLClosed)*MLOpt
-# A3MLOpt <-A3MLOpen*MLOpt
-# A2MLOpt <- A2MLOpen*MLOpt
-# AwMLOpt <- AwMLOpen*MLOpt
+
 
 #Optimal fiber length
 A3FLOpt <- sqrt((sin(A3AvgPenn)*A3FLOpen)^2+(cos(A3AvgPenn)*A3FLOpen-(A3MLOpen-A3MLOpt))^2)
@@ -347,12 +347,19 @@ if(Prey==T){Itot <- Ijaw+Iprey}else{if(Prey==F){Itot <- Ijaw}else{stop("Prey inp
 	
 	geom.out <- list()
 
+	tendon.c <-NULL
+	
 	pb = txtProgressBar(min = 2, max = MaxIts, initial = 2,style=3)
 	
-	for(n in 2:MaxIts){ifelse(j[n-1,"JawAng"]>ThetaClosed,source("jaw.torque.MS4.R",local=T),n=MaxIts)	
-	  setTxtProgressBar(pb,n)
-		}
+	if(progress) pdf(file=paste(graph.dir,"/geom_closed.pdf",sep=""),width=7,height=7)
 
+	  
+	for(n in 2:MaxIts){ifelse(j[n-1,"JawAng"]>ThetaClosed,source("jaw.torque.MS5.R",local=T),n=MaxIts)	
+	  
+	  setTxtProgressBar(pb,n)
+	  
+		}
+	if(progress) dev.off()
 
 geom.dat <-data.frame(A3FmaxNoPenn,A2FmaxNoPenn,AwFmaxNoPenn,A3PCSAclosed,A2PCSAclosed,AwPCSAclosed,A3FmaxClosed,A2FmaxClosed,AwFmaxClosed,A3ThetaJointClosed,A2ThetaJointClosed,AwThetaJointClosed,A3ThetaJointOpen,A2ThetaJointOpen,AwThetaJointOpen,A3MuscleThetaClosed,A2MuscleThetaClosed,AwMuscleThetaClosed,A3MLOpen,A2MLOpen,AwMLOpen,A3MuscleThetaOpen,A2MuscleThetaOpen,AwMuscleThetaOpen,A3Con,A2Con,AwCon,A3FLOpen,A2FLOpen,AwFLOpen,A3PennOpen,A2PennOpen,AwPennOpen,A3MLOpt,A2MLOpt,AwMLOpt,A3FLOpt,A2FLOpt,AwFLOpt)
 
