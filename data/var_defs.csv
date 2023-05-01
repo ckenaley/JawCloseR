@@ -1,0 +1,17 @@
+Variable #,Variable,Expanded Measurement Name,Definition/Clarification,Dot Color,Single (S) or Multiple (M) Measurement?
+1,A2OrIns,A2 Origin to Insertion,insertion also denotes the origin of the Meckelian tendon,blue to red,s
+2,A2OrJoint,A2 Origin to Joint,A2 Origin to Jaw Joint,blue to yellow ,s
+3,A3OrIns,A3 Origin to Interstion,the mid-point of the origin of the A3 on the suspensorium where one would anticipate the line-of-action (LOA) to be to the origin of the Meckelian tendon,navy to red,s
+4,A2/A3 Tendon,"Also known as the ""Meckelian Tendon""","the thin, white, strong tendon that attackes the A2/A3 to the dentary",red to white,s
+5,AwOrIns,Aomega Origin to Insertion,the mid-point of the origin of the A2 on the suspensorium where one would anticipate the line-of-action (LOA) to be,green to purple,s
+6,A2Li,A2 inlever = A3 inlever,specified by the fulcrum (jaw joint) to the meckelian tendon insertion,yellow to white,s
+7,A2Lo = JL,A2 outlever = Jaw Length  (also A3Lo),specified by the tip of the dentary to the jaw joint ,orange to yellow ,s
+8,A2Fli,A2 Fassicle Lengths (i= 1-10),lines from the origin of the straitions of the A2 muscle that terminate at the Meck Tendon that will be determined by the photograph (FYI: A2FL1= A2OrIns),blue (on and around it) to red,m
+9,A3Fli,A3 Fassicle Lengths (i= 1-10),lines from the origin of the straitions of the A3 muscle that terminate at the Meck Tendon that will be determined by the photograph (FYI: A3FL1= A3OrIns),navy (on and around it) to red,m
+10,AwFli,Aw Fassicle Lengths (i= 1-10),lines from the origin of the straitions of the Aw muscle that terminate at the Meck Tendon that will be determined by the photograph (FYI: AwFL1= AwOrIns),green (on and around it) to purple,m
+11,JW,The Jaw Width,from side to side of the underbelly picture of the fish jaw ,,
+,A2Or ,A2 Origin,the mid-point of the origin of the A2 on the suspensorium where one would anticipate the line-of-action (LOA) to be,blue,s
+,Joint,The Jaw Joint,the upper pin on the fish photographs indicates this,yellow ,s
+,MeckOr,Meckelian tendon origin,also the A2/A3 insertion,red ,s
+,MeckIns,Meckelian tendon insertion,the lower pin on the fish photographs indicates this,white,s
+,AwOr ,Aomega Origin  ,the mid-point of the origin of the Aw on the dentary where one would anticipate the LOA to be,green,s

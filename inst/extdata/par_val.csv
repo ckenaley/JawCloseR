@@ -1,0 +1,15 @@
+"Parameter","Value"
+"TimeStepMS",0.1
+"Density",1.0597
+"MaxIso",20
+"MaxFpar",0.2
+"Vmax",10
+"Gcon",4
+"k",0.25,
+"ActivTime",20
+"MLOptimum",25
+"GapeClosed",5
+"Scale",100
+"CdPlate",2
+"Mlmin",0.6
+"Pressure",200
